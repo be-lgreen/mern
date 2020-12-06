@@ -1,11 +1,10 @@
 const express = require('express');
-const port = 3000;
-const host = '0.0.0.0';
 const app = express();
+const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-    res.send("hello world");
+app.get('/api/hello', (req, res) => {
+    res.send({message: "hello world"});
 });
-app.listen(port, host);
 
-console.log("server start");
+app.listen(port, () => console.log(`server is listening at localhost:${port}`));
+
